@@ -1,11 +1,18 @@
 const express = require('express');
-const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 const res = require('express/lib/response');
+
+const CONNECTION_URL = "mongodb+srv://dbUser:" +
+    process.env.MONGO_ATLAS_PW +
+    "@disciplmongodb-wc0s0.mongodb.net/demo?retryWrites=true&w=majority";
+const DATABASE_NAME = "DoccleTest";
+
+const app = express();
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -25,7 +32,19 @@ app.use((req, res, next) => {
     next();
 })
 
-// Routes that handle requests
+app.listen(9000, () => {
+    mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
+        if (error) {
+            throw error;
+        }
+        console.log("Connected to `" + DATABASE_NAME + "`!");
+    });
+});
+
+
+/**
+ * Routes which should handle API requests 
+ */
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
 
