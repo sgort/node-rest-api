@@ -38,4 +38,4 @@ GET /orders/61fe4606a0cebbde6e5237e7 200 31.595 ms - 165
 POST /orders/ 201 64.962 ms - 215
 ```
 ## Postman collection
-The Postman collection build for this demo is ![published here](https://documenter.getpostman.com/view/10824299/UVeGqkvR).
+The Postman collection build for this demo is [published here](https://documenter.getpostman.com/view/10824299/UVeGqkvR).
