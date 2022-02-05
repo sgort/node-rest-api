@@ -1,5 +1,7 @@
-# demo illustrating Doccle suite services
-Prototype code base for use case(s) illustrating usage of a RESTful API with Node.js and Express Framework
+# Doccle suite services demo
+
+## API code base
+Prototype code base for usage of a RESTful API with Node.js and Express Framework
 
 - morgan is used for logging requests to the console
 - nodemon is used for automatically restarting the server when your code changes
