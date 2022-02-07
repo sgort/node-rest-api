@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
+const inschrijvingBRP = require('./api/routes/inschrijvingbrp');
 const res = require('express/lib/response');
 
 const CONNECTION_URL = "mongodb+srv://dbUser:" +
@@ -47,6 +48,7 @@ app.listen(9000, () => {
  */
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
+app.use("/inschrijvingbrp", inschrijvingBRP);
 
 app.use((req, res, next) => {
     const error = new Error('Not found');
